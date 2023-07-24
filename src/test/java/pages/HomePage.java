@@ -151,6 +151,46 @@ public class HomePage {
 
 
 
+    //login
+    @FindBy(xpath = "//a[.='My Account']")
+    public WebElement myAccountButton;
+
+    //emineee@gmail.com
+    //Emine.123
+    @FindBy(xpath = "//input[@id='username']")
+    public WebElement registeredEmailAddress;
+
+    @FindBy(xpath = "//input[@id='password']")
+    public WebElement registeredPassword;
+
+    @FindBy(xpath = "//input[@name='login']")
+    public WebElement loginButton;
+
+    @FindBy(xpath = "//div[@class='woocommerce-MyAccount-content']")
+    public WebElement wholeTextAfterLoggedin;
+
+    @FindBy(xpath = "//ul[@class='woocommerce-error']")
+    public WebElement errorMessageInLogin;
+
+
+    @FindBy(xpath = "//a[.='Logout']")
+    public WebElement logOutButton;
+
+    public String isBulletSign(){
+        return registeredPassword.getAttribute("type");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
