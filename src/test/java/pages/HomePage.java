@@ -104,6 +104,53 @@ public class HomePage {
     public WebElement paymentMethods;
 
 
+    //checkout page
+    @FindBy(xpath = "//input[@name='billing_first_name']")
+    public WebElement firstName;
+
+    @FindBy(xpath = "//input[@name='billing_last_name']")
+    public WebElement lastName;
+
+    @FindBy(xpath = "//input[@name='billing_email']")
+    public WebElement email;
+
+    @FindBy(xpath = "//input[@name='billing_phone']")
+    public WebElement phone;
+
+    @FindBy(xpath = "//div[@id='s2id_billing_country']")
+    public WebElement countryButton;
+
+    //249 tane ülke
+    @FindBy(xpath = "//li[@class='select2-results-dept-0 select2-result select2-result-selectable']")
+    public List<WebElement> countryList;
+
+    @FindBy(xpath = "//input[@name='billing_address_1']")
+    public WebElement streetAdress;
+
+    @FindBy(xpath = "//input[@name='billing_city']")
+    public WebElement city;
+
+    @FindBy(xpath = "//input[@name='billing_state']")
+    public WebElement stateOrCountry;
+
+    @FindBy(xpath = "//input[@name='billing_postcode']")
+    public WebElement zipCode;
+
+    @FindBy(xpath = "//textarea[@id='order_comments']")
+    public WebElement orderNotes;
+
+    @FindBy(xpath = "//input[@id='payment_method_cod']")
+    public WebElement paymentCash;
+
+    @FindBy(xpath = "//input[@id='place_order']")
+    public WebElement placeOrderButton;
+
+    //new page
+    @FindBy(xpath = "//h2[.='Order Details']")
+    public WebElement orderDetailsText;
+
+
+
 
 
 

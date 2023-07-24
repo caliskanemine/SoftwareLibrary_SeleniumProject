@@ -1,5 +1,7 @@
 package tests;
 
+import com.github.javafaker.Faker;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -11,6 +13,7 @@ import utilities.Driver;
 public class TC18_CheckoutPaymentGatewayPlaceOrder {
 
     HomePage tc1Page= new HomePage();
+    Faker faker= new Faker();
 
     @BeforeMethod
     public void setup(){
@@ -76,8 +79,25 @@ public class TC18_CheckoutPaymentGatewayPlaceOrder {
         Assert.assertTrue(tc1Page.yourOrderText.isDisplayed());
         Assert.assertTrue(tc1Page.paymentMethods.isDisplayed());
 
-}
+        tc1Page.firstName.sendKeys(faker.name().firstName());
+        tc1Page.lastName.sendKeys(faker.name().lastName());
+        tc1Page.email.sendKeys(faker.internet().emailAddress());
+        tc1Page.phone.sendKeys(faker.phoneNumber().cellPhone());
+        tc1Page.countryButton.click();
+        tc1Page.countryList.get(faker.number().numberBetween(0, 248)).click();
+        tc1Page.streetAdress.sendKeys(faker.address().streetName());
+        tc1Page.city.sendKeys(faker.address().cityName());
+        tc1Page.stateOrCountry.sendKeys(faker.country().name());
+        tc1Page.zipCode.sendKeys(faker.address().zipCode());
+        tc1Page.orderNotes.sendKeys("don't panic! I am the tester!!!");
+        tc1Page.paymentCash.click();
+        tc1Page.placeOrderButton.click();
+        String expectedTextforNewPage= "Order Details";
+        String actualTextForNewPage= tc1Page.orderDetailsText.getText();
+        Assert.assertEquals(actualTextForNewPage, expectedTextforNewPage);
 
+
+}
 
 
     @AfterMethod
