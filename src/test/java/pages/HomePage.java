@@ -181,6 +181,24 @@ public class HomePage {
     }
 
 
+    //TC27 Elements
+    @FindBy(xpath = "//form[@class='register']//input[@type='email']")
+    public WebElement registEmail;
+
+    @FindBy(xpath = "//form[@class='register']//input[@type='password']")
+    public WebElement registPassword;
+
+    @FindBy(xpath = "//form[@class='register']//input[@type='submit']")
+    public WebElement registerButton;
+
+    @FindBy(xpath = "//a[.='Dashboard']")
+    public WebElement dashboardButtton;
+
+    @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
+    public WebElement errorForRegist;
+
+
+
 
 
 
