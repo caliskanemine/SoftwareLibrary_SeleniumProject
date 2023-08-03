@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TC39_ShopReadMoreFunctionality {
 
@@ -17,7 +18,7 @@ public class TC39_ShopReadMoreFunctionality {
     }
 
     @Test
-    public void TC39(){
+    public void TC39() throws InterruptedException {
         //39. Shop-Read More Functionality
         //        1) Open the browser
         //        2) Enter the URL “http://practice.automationtesting.in/”
@@ -25,7 +26,11 @@ public class TC39_ShopReadMoreFunctionality {
         //        4) Click on read more button in home page
         //        5) Read More option indicates the Out Of Stock.
         //        6) Users cannot add the product which has read more options as it was out of stock.
-
+        Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
+        Thread.sleep(1000);
+        homePage.myAccountButton.click();
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.clickWithJS(homePage.shopMenu);
 
 
     }

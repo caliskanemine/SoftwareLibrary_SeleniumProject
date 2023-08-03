@@ -1,9 +1,14 @@
 package pages;
 
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.List;
 
@@ -196,6 +201,57 @@ public class HomePage {
 
     @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
     public WebElement errorForRegist;
+
+    //TC32 Element-Starting Shop Button
+    @FindBy(xpath = "//a[.='Shop']")
+    public WebElement shopButton;
+
+    @FindBy(xpath = "//button[.='Filter']")
+    public WebElement filterButton;
+
+    @FindBy(xpath = "//span[@tabindex='0'][2]")
+    public WebElement leftSliderHandleIcon;
+    @FindBy(css = "span.to")
+    public WebElement priceRangeTo;
+    @FindBy(css = "span.from")
+    public WebElement priceRangeFrom;
+
+    public void adjustPriceBySlider(int startPrice, int endPrice) {
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.click(leftSliderHandleIcon).build().perform();
+        ReusableMethods.wait(2);
+
+        int i = 0;
+
+        while (i >= 0) {
+            if (priceRangeTo.getText().contains(String.valueOf(endPrice)) && priceRangeFrom.getText().contains(String.valueOf(startPrice))) {
+                break;
+            } else {
+                actions.sendKeys(Keys.ARROW_LEFT).build().perform();
+            }
+            i++;
+        }
+
+    }
+
+
+    @FindBy(xpath = "//img[@class='attachment-shop_catalog size-shop_catalog wp-post-image']")
+    public List<WebElement> products;
+
+    @FindBy(xpath = "//select[@name='orderby']")
+    public WebElement sort;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
