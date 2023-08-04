@@ -90,7 +90,8 @@ public class HomePage {
     @FindBy(xpath = "//tr[@class='order-total']//td")
     public WebElement totalPrice;
 
-    @FindBy(xpath = "//div[@class='cart_totals calculated_shipping']//td[@data-title='Subtotal']")
+    //@FindBy(xpath = "//div[@class='cart_totals calculated_shipping']//td[@data-title='Subtotal']")
+    @FindBy(xpath = "(//div[@class='cart_totals ']//tbody//td/span)[1]")
     public WebElement subTotal;
 
     @FindBy(xpath = "//a[normalize-space()='Proceed to Checkout']")
@@ -241,6 +242,26 @@ public class HomePage {
 
     @FindBy(xpath = "//select[@name='orderby']")
     public WebElement sort;
+
+    //TC40
+    @FindBy(xpath = "//span[.='Sale!']")
+    public List<WebElement> saleProducts;
+
+    @FindBy(xpath = "//p[@class='price']//del/span")
+    public WebElement actualPrice;
+
+    @FindBy(xpath = "//p[@class='price']//ins/span")
+    public WebElement salePrice;
+
+    //TC41
+    @FindBy(xpath = "//a[.='Add to basket']")
+    public List<WebElement> addToBaskets;
+
+    @FindBy(xpath = "//a[.='View Basket']")
+    public WebElement viewBasket;
+
+    @FindBy(xpath = "//div[@class='cart_totals ']//table/tbody/tr/th[.='Subtotal']")
+    public WebElement subTotaltoFortyOneCase;
 
 
 
