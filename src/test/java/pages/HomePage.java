@@ -324,6 +324,18 @@ public class HomePage {
     @FindBy(xpath = "//input[@name='save_address']")
     public WebElement saveAddressButton;
 
+    @FindBy(xpath = "//a[.='Account Details']")
+    public WebElement accountDetails;
+
+    @FindBy(xpath = "//label[@for='password_1']")
+    public WebElement newPassword;
+
+    @FindBy(xpath = "//a[.='Logout']")
+    public WebElement logoutButton;
+
+    @FindBy(xpath = "//h2[.='Login']")
+    public WebElement loginText;
+
 
 
 

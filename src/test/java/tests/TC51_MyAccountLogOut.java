@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class TC51_MyAccountLogOut {
     }
 
     @Test
-    public void TC51(){
+    public void TC51() throws InterruptedException {
 
 
     //51. My Accounts-Log-Out
@@ -31,6 +32,16 @@ public class TC51_MyAccountLogOut {
     //8) Click on My Account link
     //9) Click on Logout button
     //10) On clicking logout,User successfully comes out from the site
+        Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
+        Thread.sleep(1000);
+        homePage.myAccountButton.click();
+        Driver.getDriver().navigate().refresh();
+        homePage.myAccountButton.click();
+        homePage.registeredEmailAddress.sendKeys("emineee@gmail.com");
+        homePage.registeredPassword.sendKeys("Emine.123");
+        homePage.loginButton.click();
+        homePage.logoutButton.click();
+        Assert.assertTrue(homePage.loginText.isDisplayed());
 
 }
 

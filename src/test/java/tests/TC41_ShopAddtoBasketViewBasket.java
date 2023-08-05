@@ -40,6 +40,7 @@ public class TC41_ShopAddtoBasketViewBasket {
         //13) On clicking place order button user completes his process where the page navigates to Order confirmation page with order details,bank details,customer details and billing details.
         Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
         Thread.sleep(1000);
+        ReusableMethods.clickWithJS(homePage.shopMenu);
         Driver.getDriver().navigate().refresh();
         ReusableMethods.clickWithJS(homePage.shopMenu);
         ReusableMethods.clickWithJS(homePage.addToBaskets.get(faker.number().numberBetween(0,7)));
@@ -81,6 +82,7 @@ public class TC41_ShopAddtoBasketViewBasket {
         homePage.orderNotes.sendKeys("don't panic! I am the tester!!!");
         ReusableMethods.clickWithJS(homePage.paymentCash);
         homePage.placeOrderButton.click();
+        ReusableMethods.wait(15);
         String expectedTextforNewPage= "Order Details";
         String actualTextForNewPage= homePage.orderDetailsText.getText();
         Assert.assertEquals(actualTextForNewPage, expectedTextforNewPage);
