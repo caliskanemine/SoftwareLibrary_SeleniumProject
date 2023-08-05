@@ -30,7 +30,6 @@ public class TC33_ShopProductCategories {
         //5) Now user can view only that particular product
         Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
         Thread.sleep(1000);
-        homePage.myAccountButton.click();
         Driver.getDriver().navigate().refresh();
         ReusableMethods.clickWithJS(homePage.shopMenu);
         homePage.products.get(faker.number().numberBetween(0, homePage.products.size()-1)).click();

@@ -30,7 +30,6 @@ public class TC40_ShopSaleFunctionality {
         //5) User can clearly view the actual price with old price stricken for the sale written products
         Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
         Thread.sleep(1000);
-        homePage.myAccountButton.click();
         Driver.getDriver().navigate().refresh();
         ReusableMethods.clickWithJS(homePage.shopMenu);
         homePage.saleProducts.get(0).click();

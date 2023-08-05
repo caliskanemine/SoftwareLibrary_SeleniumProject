@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class TC48_MyAccountsAddressFunctionality {
     }
 
     @Test
-    public void TC48(){
+    public void TC48() throws InterruptedException {
 
 
     //48. My Accounts-Address Functionality
@@ -31,6 +32,20 @@ public class TC48_MyAccountsAddressFunctionality {
     //8) Click on My account link which leads to Dashboard
     //9) Click on Address link
     //10) User must view billing address and ship address
+        Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
+        Thread.sleep(1000);
+        homePage.myAccountButton.click();
+        Driver.getDriver().navigate().refresh();
+        homePage.myAccountButton.click();
+        homePage.registeredEmailAddress.sendKeys("emineee@gmail.com");
+        homePage.registeredPassword.sendKeys("Emine.123");
+        homePage.loginButton.click();
+        homePage.addressesButton.click();
+
+        Assert.assertTrue(homePage.billingAddressText.isDisplayed());
+        Assert.assertTrue(homePage.shipAddressText.isDisplayed());
+
+
 
 
 }

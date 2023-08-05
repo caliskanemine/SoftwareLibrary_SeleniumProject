@@ -28,7 +28,6 @@ public class TC39_ShopReadMoreFunctionality {
         //        6) Users cannot add the product which has read more options as it was out of stock.
         Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
         Thread.sleep(1000);
-        homePage.myAccountButton.click();
         Driver.getDriver().navigate().refresh();
         ReusableMethods.clickWithJS(homePage.shopMenu);
 

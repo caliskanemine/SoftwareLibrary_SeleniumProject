@@ -17,7 +17,7 @@ public class TC46_MyAccountsOrders {
     }
 
     @Test
-    public void TC46(){
+    public void TC46() throws InterruptedException {
 
 
     //46. My Accounts - Orders
@@ -32,6 +32,17 @@ public class TC46_MyAccountsOrders {
     //9) Click on Orders link
     //10) Click view button
     //11) User must view his Order details,customer details and billing details on clicking view button
+        Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
+        Thread.sleep(1000);
+        homePage.myAccountButton.click();
+        Driver.getDriver().navigate().refresh();
+        homePage.myAccountButton.click();
+        homePage.registeredEmailAddress.sendKeys("emineee@gmail.com");
+        homePage.registeredPassword.sendKeys("Emine.123");
+        homePage.loginButton.click();
+        homePage.ordersButton.click();
+
+        //no order!
 
 }
 

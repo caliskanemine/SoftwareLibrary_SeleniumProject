@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ public class TC45_MyAccountsOrders {
     }
 
     @Test
-    public void TC45(){
+    public void TC45() throws InterruptedException {
 
         //45. My Accounts - Orders
         //1) Open the browser
@@ -31,6 +32,18 @@ public class TC45_MyAccountsOrders {
         //8) Click on My account link
         //9) Click on Orders link
         //10) User must view their orders on clicking orders link
+        Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
+        Thread.sleep(1000);
+        homePage.myAccountButton.click();
+        Driver.getDriver().navigate().refresh();
+        homePage.myAccountButton.click();
+        homePage.registeredEmailAddress.sendKeys("emineee@gmail.com");
+        homePage.registeredPassword.sendKeys("Emine.123");
+        homePage.loginButton.click();
+        homePage.ordersButton.click();
+
+        Assert.assertTrue(homePage.noorderMessage.getText().contains("No order has been made yet."));
+
     }
 
 

@@ -29,7 +29,6 @@ public class TC34_ShopDefaultSortingA {
         //5) Now user can view the popular products only
         Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
         Thread.sleep(1000);
-        homePage.myAccountButton.click();
         Driver.getDriver().navigate().refresh();
         ReusableMethods.clickWithJS(homePage.shopMenu);
 

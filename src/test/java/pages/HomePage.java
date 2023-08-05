@@ -90,7 +90,7 @@ public class HomePage {
     @FindBy(xpath = "//tr[@class='order-total']//td")
     public WebElement totalPrice;
 
-    //@FindBy(xpath = "//div[@class='cart_totals calculated_shipping']//td[@data-title='Subtotal']")
+    //@FindBy(xpath = "//div[@class='cart_totals calculated_shipping']//td[@data-title='Subtotal']/span")
     @FindBy(xpath = "(//div[@class='cart_totals ']//tbody//td/span)[1]")
     public WebElement subTotal;
 
@@ -243,6 +243,7 @@ public class HomePage {
     @FindBy(xpath = "//select[@name='orderby']")
     public WebElement sort;
 
+
     //TC40
     @FindBy(xpath = "//span[.='Sale!']")
     public List<WebElement> saleProducts;
@@ -253,6 +254,7 @@ public class HomePage {
     @FindBy(xpath = "//p[@class='price']//ins/span")
     public WebElement salePrice;
 
+
     //TC41
     @FindBy(xpath = "//a[.='Add to basket']")
     public List<WebElement> addToBaskets;
@@ -260,8 +262,68 @@ public class HomePage {
     @FindBy(xpath = "//a[.='View Basket']")
     public WebElement viewBasket;
 
-    @FindBy(xpath = "//div[@class='cart_totals ']//table/tbody/tr/th[.='Subtotal']")
-    public WebElement subTotaltoFortyOneCase;
+
+    //TC43
+    @FindBy(xpath = "//td[@data-title='Tax']/span")
+    public WebElement tax;
+
+
+    //TC44-MyAccount
+    @FindBy(xpath = "//a[.='Orders']")
+    public WebElement ordersButton;
+
+    @FindBy(xpath = "//div[@class='woocommerce-Message woocommerce-Message--info woocommerce-info']")
+    public WebElement noorderMessage;
+
+
+    //TC48
+    @FindBy(xpath = "//a[.='Addresses']")
+    public WebElement addressesButton;
+
+    @FindBy(xpath = "//h3[.='Billing Address']")
+    public WebElement billingAddressText;
+
+    @FindBy(xpath = "//h3[.='Shipping Address']")
+    public WebElement shipAddressText;
+
+    @FindBy(xpath = "//header[@class='woocommerce-Address-title title']//a[.='Edit']")
+    public List<WebElement> editButtons;
+
+
+    //TC49
+    @FindBy(xpath = "//input[@name='shipping_first_name']")
+    public WebElement firstnameShippingAddress;
+
+    @FindBy(xpath = "//input[@name='shipping_last_name']")
+    public WebElement lastNameShippingAddress;
+
+    @FindBy(xpath = "//input[@name='shipping_company']")
+    public WebElement companyShippingAddress;
+
+    @FindBy(xpath = "//div[@class='select2-container country_to_state country_select']")
+    public WebElement countryButtonShippingAddress;
+
+    @FindBy(xpath = "//input[@id='s2id_autogen1_search']")
+    public WebElement selectCountries;
+
+    @FindBy(xpath = "//input[@name='shipping_address_1']")
+    public WebElement streetShippingAddrs;
+
+    @FindBy(xpath = "//input[@name='shipping_city']")
+    public WebElement cityShippingAddrs;
+
+    @FindBy(xpath = "//input[@name='shipping_postcode']")
+    public WebElement zipCodeShippingAddrss;
+
+    @FindBy(xpath = "//div[@class='select2-container state_select']")
+    public WebElement provinceShippingAddrss;
+
+    @FindBy(xpath = "//input[@id='s2id_autogen2_search']")
+    public WebElement selectProvinceShipAdrss;
+
+    @FindBy(xpath = "//input[@name='save_address']")
+    public WebElement saveAddressButton;
+
 
 
 

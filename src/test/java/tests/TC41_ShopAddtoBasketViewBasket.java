@@ -40,7 +40,6 @@ public class TC41_ShopAddtoBasketViewBasket {
         //13) On clicking place order button user completes his process where the page navigates to Order confirmation page with order details,bank details,customer details and billing details.
         Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
         Thread.sleep(1000);
-        homePage.myAccountButton.click();
         Driver.getDriver().navigate().refresh();
         ReusableMethods.clickWithJS(homePage.shopMenu);
         ReusableMethods.clickWithJS(homePage.addToBaskets.get(faker.number().numberBetween(0,7)));
@@ -48,16 +47,16 @@ public class TC41_ShopAddtoBasketViewBasket {
         String amountOfPrice=homePage.amountOnMenu.getText();
         System.out.println(amountOfPrice);
         ReusableMethods.waitForVisibility(homePage.viewBasket, 10);
-        homePage.viewBasket.click();
+        ReusableMethods.clickWithJS(homePage.viewBasket);
         assertTrue(homePage.subTotal.isDisplayed());
         System.out.println("homePage.subTotal.getText() = " + homePage.subTotal.getText());
         assertTrue(homePage.totalPrice.isDisplayed());
         System.out.println("homePage.totalPrice.getText() = " + homePage.totalPrice.getText());
 
-        Integer sub= Integer.valueOf(homePage.subTotal.getText());
+        Double sub= Double.valueOf(homePage.subTotal.getText().substring(1));
         System.out.println("sub = " + sub);
 
-        Integer total= Integer.valueOf(homePage.subTotal.getText());
+        Double total= Double.valueOf(homePage.totalPrice.getText().substring(1));
         System.out.println("total = " + total);
 
         assertTrue(sub<total);
@@ -80,7 +79,7 @@ public class TC41_ShopAddtoBasketViewBasket {
         homePage.stateOrCountry.sendKeys(faker.country().name());
         homePage.zipCode.sendKeys(faker.address().zipCode());
         homePage.orderNotes.sendKeys("don't panic! I am the tester!!!");
-        homePage.paymentCash.click();
+        ReusableMethods.clickWithJS(homePage.paymentCash);
         homePage.placeOrderButton.click();
         String expectedTextforNewPage= "Order Details";
         String actualTextForNewPage= homePage.orderDetailsText.getText();

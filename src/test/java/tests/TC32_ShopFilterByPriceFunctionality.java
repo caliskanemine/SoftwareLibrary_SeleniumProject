@@ -31,7 +31,6 @@ public class TC32_ShopFilterByPriceFunctionality {
         //6) User can view books only between 150 to 450 rps price
         Driver.getDriver().get(ConfigurationReader.getProperty("au_url"));
         Thread.sleep(1000);
-        homePage.myAccountButton.click();
         Driver.getDriver().navigate().refresh();
         ReusableMethods.clickWithJS(homePage.shopMenu);
         //actions.clickAndHold(homePage.filterLeft).moveToElement(homePage.leftTarget).build().perform();
